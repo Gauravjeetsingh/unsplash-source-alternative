@@ -1,0 +1,14 @@
+{
+  "name": "unsplash-source",
+  "version": "1.0.0",
+  "description": "Alternative to unsplash source with api",
+  "main": "api.js",
+  "scripts": {
+    "start": "node api.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2"
+  }
+}
