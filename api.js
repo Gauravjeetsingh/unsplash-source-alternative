@@ -4,6 +4,16 @@ const port = 3000
 
 require('dotenv').config();
 
+const getFallbackImage = (w, h) => {
+    const imageUrls = [
+        'https://images.unsplash.com/photo-1578589591337-864142c03335',
+        'https://images.unsplash.com/photo-1452621946466-c0f2ff2ff100',
+        'https://images.unsplash.com/photo-1464278533981-50106e6176b1'
+    ];
+    const randomIndex = Math.floor(Math.random()*imageUrls.length);
+    return `${imageUrls[randomIndex]}?w=${w}&h=${h}&fit=crop`;
+}
+
 
 app.get('/', (req, res) => {
     res.send('Welcome to unsplash source - go to <code>.../1600x900?keyword=magic</code>')
@@ -13,11 +23,13 @@ app.get('/:size', async (req, res) => {
     const { size } = req.params;
     const { keyword } = req.query;
 
+    const [width, height] = size.split('x');
+
     if (!keyword) {
         return res.status(400).send('Keyword is required');
     }
 
-    const unsplashURL = `https://api.unsplash.com/photos/random?query=${encodeURIComponent(keyword)}&w=${size.split('x')[0]}&h=${size.split('x')[1]}&client_id=${process.env.CLIENT_KEY}`;
+    const unsplashURL = `https://api.unsplash.com/photos/random?query=${encodeURIComponent(keyword)}&w=${width}&h=${height}&client_id=${process.env.CLIENT_KEY}`;
 
     try {
         const response = await fetch(unsplashURL);
@@ -29,9 +41,13 @@ app.get('/:size', async (req, res) => {
             const imageUrl = `${data.urls.raw}&w=${width}&h=${height}&fit=crop`;
             // Redirecting to the manipulated image URL
             res.redirect(imageUrl);
+        } else {
+            const randomImage = getFallbackImage(width, height);
+            res.redirect(randomImage);
         }
     } catch (error) {
-        res.status(500).send('Error fetching image');
+        const randomImage = getFallbackImage(width, height);
+        res.redirect(randomImage);
     }
 });
 
