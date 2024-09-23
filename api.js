@@ -19,6 +19,16 @@ app.get('/', (req, res) => {
     res.send('Welcome to unsplash source - go to <code>.../1600x900?keyword=magic</code>')
 })
 
+app.get('/random/:size', async (req, res) => {
+    const { size } = req.params;
+   const [width, height] = size.split('x');
+   if (!size) {
+    return res.status(400).send('Size is required');
+   }
+   const randomImage = getFallbackImage(width, height);
+   res.redirect(randomImage);
+})
+
 app.get('/:size', async (req, res) => {
     const { size } = req.params;
     const { keyword } = req.query;
