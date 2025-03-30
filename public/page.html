@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unsplash Source</title>
+  <link rel="stylesheet" href="/normalize.css">
+  <link rel="stylesheet" href="/page.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <script
+  defer
+  data-website-id="prj_lkK9b5EB32Bc4iVl5j6m15RanvNi"
+  src="https://analytics.vercel.com/prj_lkK9b5EB32Bc4iVl5j6m15RanvNi.js"
+></script>
+</head>
+
+<body>
+  <div class="toast-container" id="toast-container"></div>
+  <section class="branding">
+    <div class="overlay"></div>
+    <div class="getting-started animate__animated animate__fadeIn">
+      <article>
+        <p class='tagline'>The unofficial</p>
+        <h1><span class='heavy'>Unsplash</span> Source</h1>
+        <p>Simple embedding for Unsplash photos.</p>
+      </article>
+      <div class="example">
+        <div class="options">
+          <button onclick="changeMode(this);" id="random" class="active">Random</button>
+          <button onclick="changeMode(this);" id="keyword">Keyword</button>
+          <button onclick="changeMode(this);" id="user">User</button>
+          <button onclick="changeMode(this);" id="collection">Collection</button>
+          <button onclick="changeMode(this);" id="photo">Specific Photo</button>
+        </div>
+        <div class="form">
+          <p class="url-demo">
+            https://unsplash-source-alternative.vercel.app/random/<span class='editable' contenteditable="true">1600x1200</span>
+          </p>
+          <button onclick="copyText(this)">Copy</button>
+        </div>
+      </div>
+    </div>
+    <Toaster />
+  </section>  
+  <footer></footer>
+  <script src="helper.js">
+   
+  </script>
+</body>
+
+</html>

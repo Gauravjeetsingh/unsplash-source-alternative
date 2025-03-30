@@ -1,0 +1,91 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-family: sans-serif;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+.tagline {
+  margin: 0;
+}
+
+.branding {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-image: url('https://unsplash-source-alternative.vercel.app/random/1600x1200');
+    background-size: cover;
+    padding: 0 32px;
+}
+
+.getting-started {
+  z-index: 20;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.getting-started h1 {
+  font-size: 64px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.heavy {
+  font-weight: bold;
+}
+
+.tagline {
+  font-size: 24px;
+}
+
+button {
+  padding: 12px;
+  margin: 8px;
+  font-size: 16px;
+  background-color: rgba(0,0,0,0.3);
+  border: 1px solid #fafafa;
+  color: #fafafa;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.4s all ease;
+}
+
+button.active {
+  background-color: #fafafa;
+  color: #333;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.url-demo {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #fafafa;
+  background: #fafafa;
+  color: #888;
+  min-width: 200px;
+  display: inline-block;
+}
+
+.url-demo > .editable {
+  color: #333;
+}
